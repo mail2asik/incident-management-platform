@@ -24,7 +24,6 @@ services:
 
   database:
     image: mysql:8.0
-    container_name: personal-db
     ports:
       - "3306:3306"
     environment:
