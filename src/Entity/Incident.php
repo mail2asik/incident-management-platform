@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\IncidentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: IncidentRepository::class)]
 class Incident
@@ -12,9 +13,11 @@ class Incident
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['incident:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['incident:read'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
